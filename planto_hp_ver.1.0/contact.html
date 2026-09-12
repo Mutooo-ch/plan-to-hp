@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ — Plan to, inc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="brand">Plan to<span>,</span> inc</div>
+    <div class="nav-links">
+      <a href="index.html">TOP</a>
+      <a href="about.html">私たちについて</a>
+      <a href="business.html">事業内容</a>
+      <a href="works.html">実績</a>
+      <a href="team.html">チーム</a>
+    </div>
+    <a class="nav-cta" href="contact.html">お問い合わせ</a>
+    <button class="nav-toggle" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="mini-hero">
+    <svg class="mini-motif" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 240 L240 60" stroke="#8890A0" stroke-width="1" opacity=".5"/><circle cx="60" cy="240" r="5" fill="#8890A0"/><circle cx="240" cy="60" r="5" fill="#8890A0"/>
+    </svg>
+    <div class="mini-hero-inner"><p class="eyebrow">Contact</p><h1>お問い合わせ</h1></div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap" style="max-width:680px;">
+      <h2>お問い合わせフォーム</h2>
+      <form class="form" onsubmit="return false;">
+        <div><label>お名前</label><input type="text" placeholder="山田 太郎"></div>
+        <div><label>会社名</label><input type="text" placeholder="株式会社〇〇"></div>
+        <div><label>メールアドレス</label><input type="email" placeholder="you@example.com"></div>
+        <div><label>お問い合わせ内容</label><textarea placeholder="とうぷらへの掲載相談 / HR支援のご相談 / Marketing支援のご相談 など"></textarea></div>
+        <button class="btn btn-primary" type="submit" style="align-self:flex-start;">送信する</button>
+        <p class="note">※このフォームはデザイン確認用のモックです。STUDIO実装時にフォーム機能と連携してください。</p>
+      </form>
+      <div style="margin-top:64px;">
+        <h2 style="font-size:20px;">よくあるご質問</h2>
+        <details class="faq-item" open><summary>どうやって依頼できますか？<span class="plus">+</span></summary><div class="faq-a">メールまたはフォームからご連絡ください。とうぷらSNSでのPRはInstagram DMでも受け付けています。</div></details>
+        <details class="faq-item"><summary>SNS支援の費用は？<span class="plus">+</span></summary><div class="faq-a">ご要件により異なりますが、最低単価5万円〜で承っています。</div></details>
+        <details class="faq-item"><summary>どのくらいで開始できますか？<span class="plus">+</span></summary><div class="faq-a">多くの場合、ご契約後すぐにご支援可能です。</div></details>
+        <details class="faq-item"><summary>小規模案件も可能ですか？<span class="plus">+</span></summary><div class="faq-a">もちろん可能です。お気軽にご相談ください。</div></details>
+      </div>
+    </div>
+  </section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-logo">Plan to<span>,</span> inc</div>
+    <div class="foot-links"><a href="about.html">私たちについて</a><a href="business.html">事業内容</a><a href="works.html">実績</a><a href="team.html">チーム</a><a href="contact.html">お問い合わせ</a><a href="#">プライバシーポリシー</a></div>
+    <div class="foot-social">
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="TikTok">TT</a>
+    </div>
+    <div class="foot-copy">© Plan to, inc.</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

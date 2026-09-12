@@ -1,0 +1,253 @@
+:root{
+  --navy:#2E4A7D; --navy-deep:#141F36; --ink:#181F2B; --body:#5A6270; --body-light:#93989F;
+  --gold:#3F7D62; --gold-hover:#5A9C80; --gold-deep:#2C5A45;
+  --bg:#FAFAF8; --bg-alt:#F1F0EC; --line:#E4E3DE; --line-dark:rgba(255,255,255,.12); --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{ margin:0; background:var(--bg); color:var(--ink); font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif; -webkit-font-smoothing:antialiased; line-height:1.8; }
+h1,h2,h3,.serif{ font-family:"Shippori Mincho",serif; }
+a{color:inherit; text-decoration:none;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+::selection{background:var(--gold); color:var(--navy-deep);}
+
+
+
+/* ---------- Header ---------- */
+header{ position:sticky; top:37px; z-index:50; background:rgba(250,250,248,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:28px 32px; max-width:var(--maxw); margin:0 auto; }
+.brand{ font-size:19px; font-weight:700; color:var(--navy-deep); }
+.brand span{ color:var(--body-light); }
+.nav-links{ display:flex; gap:30px; font-size:13.5px; }
+.nav-links a{ position:relative; padding:4px 0; cursor:pointer; }
+.nav-links a::after{ content:""; position:absolute; left:0; bottom:-2px; width:0; height:1px; background:var(--navy); transition:width .25s ease; }
+.nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
+.nav-links a.active{ color:var(--navy-deep); font-weight:700; }
+.nav-cta{ font-size:13px; padding:9px 20px; background:var(--navy-deep); color:#fff; cursor:pointer; }
+.nav-cta:hover{ background:var(--navy); }
+.nav-toggle{ display:none; background:none; border:none; }
+.nav-toggle span{ display:block; width:20px; height:2px; background:var(--navy-deep); margin:5px 0; }
+
+/* ---------- Full hero (TOP page only) ---------- */
+.hero{ background:var(--navy-deep); color:#fff; min-height:86vh; display:flex; flex-direction:column; justify-content:center; padding:100px 32px 80px; position:relative; overflow:hidden; }
+.hero-fx{ position:absolute; border-radius:50%; filter:blur(70px); pointer-events:none; z-index:0; animation:fxBreathe 7s ease-in-out infinite; }
+.hero-fx.a{ width:360px; height:360px; background:var(--gold); opacity:.16; top:-80px; right:8%; }
+.hero-fx.b{ width:260px; height:260px; background:#3A537F; opacity:.35; bottom:-60px; right:26%; animation-delay:-3s; }
+@keyframes fxBreathe{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.12); } }
+@media (prefers-reduced-motion:reduce){ .hero-fx{ animation:none; } }
+.hero-eyebrow{ font-size:13px; color:var(--gold); font-weight:700; letter-spacing:.04em; margin:0 0 18px; position:relative; z-index:2; }
+.hero-fade{ transition:opacity .35s ease; }
+.hero-fade.is-out{ opacity:0; }
+.hero-nav{ display:flex; align-items:center; margin:26px auto 0; position:relative; z-index:2; max-width:var(--maxw); width:100%; padding:0 32px; box-sizing:border-box; }
+.hero-node{ display:flex; align-items:center; cursor:pointer; padding:8px 0; }
+.hero-node-dot{ width:13px; height:13px; border-radius:50%; background:rgba(255,255,255,.85); transition:all .3s ease; flex:none; box-sizing:border-box; }
+.hero-node-dot.active{ width:19px; height:19px; background:var(--gold); }
+.hero-line-track{ position:relative; width:200px; height:2px; background:rgba(255,255,255,.25); flex:none; }
+.hero-line-fill{ position:absolute; left:0; top:0; height:100%; width:0%; background:var(--gold); }
+.hero-line-track.done .hero-line-fill{ width:100%; }
+.hero-line-track.active .hero-line-fill{ animation:heroLineFill linear forwards; animation-duration:var(--hero-duration,7s); }
+@keyframes heroLineFill{ from{ width:0%; } to{ width:100%; } }
+@media (max-width:900px){ .hero-line-track{ width:44px; } }
+.hero-inner{ max-width:var(--maxw); margin:0 auto; width:100%; position:relative; z-index:2; }
+.hero-line{ overflow:hidden; }
+.hero h1{ font-size:clamp(40px,7.6vw,104px); line-height:1.28; font-weight:700; margin:0; }
+.hero h1 .l{ display:block; opacity:0; transform:translateY(100%); animation:lineUp .85s cubic-bezier(.2,.8,.2,1) forwards; }
+.hero h1 .l1{ animation-delay:.1s; } .hero h1 .l2{ animation-delay:.32s; } .hero h1 .l3{ animation-delay:.54s; }
+@keyframes lineUp{ to{opacity:1; transform:translateY(0);} }
+.hero-sub{ font-size:16px; color:rgba(255,255,255,.6); max-width:520px; margin:36px 0 0; opacity:0; animation:fadeIn 1s .95s forwards; }
+@keyframes fadeIn{ to{opacity:1;} }
+.hero-bottom{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; max-width:var(--maxw); margin:64px auto 0; width:100%; position:relative; z-index:2; opacity:0; animation:fadeIn 1s 1.2s forwards; }
+.scroll-cue{ font-size:12px; color:rgba(255,255,255,.4); writing-mode:vertical-rl; letter-spacing:.1em; }
+.hero-motif{ position:absolute; right:-6%; top:50%; transform:translateY(-50%); width:520px; max-width:48vw; opacity:.55; z-index:1; }
+.hero-motif path.draw{ stroke-dasharray:1400; stroke-dashoffset:0; }
+
+/* ---------- Hero landscape scene ---------- */
+/* (hero is a plain solid navy background — no photo/illustration layer) */
+
+/* ---------- Mini hero (subpages) ---------- */
+.mini-hero{ background:var(--navy-deep); color:#fff; padding:110px 32px 64px; position:relative; overflow:hidden; }
+.mini-hero-inner{ max-width:var(--maxw); margin:0 auto; position:relative; z-index:2; }
+.mini-hero .eyebrow{ font-size:13px; color:rgba(255,255,255,.45); margin:0 0 14px; }
+.mini-hero h1{ font-size:clamp(30px,4.4vw,48px); margin:0; }
+.mini-motif{ position:absolute; right:-4%; top:-10%; width:320px; opacity:.35; z-index:1; }
+
+/* ---------- Section shell ---------- */
+.sec{ padding:96px 0; }
+.sec-alt{ background:var(--bg-alt); }
+.sec-dark{ background:var(--navy-deep); color:#fff; }
+.sec h2{ font-size:clamp(24px,2.8vw,32px); margin:0 0 40px; color:var(--navy-deep); font-weight:700; }
+.sec-dark h2{ color:#fff; }
+.sec-title{ text-align:center; margin-bottom:64px; }
+.sec-title .eng{ display:block; font-family:"Shippori Mincho",serif; font-size:clamp(34px,4.6vw,52px); color:var(--navy-deep); letter-spacing:.01em; line-height:1.1; }
+.sec-dark .sec-title .eng{ color:#fff; }
+.sec-title .jp{ display:block; font-size:16px; color:var(--body-light); margin-top:6px; font-weight:700; }
+.sec-dark .sec-title .jp{ color:rgba(255,255,255,.55); }
+
+/* ---------- Statement (quote) ---------- */
+.statement{ padding:120px 0; text-align:center; }
+.statement blockquote{ font-family:"Shippori Mincho",serif; font-size:clamp(22px,3.2vw,34px); line-height:1.9; color:var(--navy-deep); max-width:820px; margin:0 auto; font-weight:500; }
+.statement .lead{ margin:20px auto 0; font-size:14.5px; line-height:1.9; color:var(--body); max-width:600px; }
+.statement .lead + .lead{ margin-top:16px; }
+.mvv-inline{ display:flex; justify-content:center; gap:56px; margin-top:56px; flex-wrap:wrap; }
+.mvv-inline div{ text-align:center; max-width:220px; }
+.mvv-inline .k{ font-size:12.5px; color:var(--body-light); font-weight:700; margin-bottom:8px; }
+.mvv-inline .v{ font-size:13.5px; color:var(--body); }
+
+/* ---------- Company table ---------- */
+.ctable{ width:100%; border-collapse:collapse; max-width:720px; }
+.ctable tr{ border-top:1px solid var(--line); }
+.ctable tr:last-child{ border-bottom:1px solid var(--line); }
+.ctable th{ text-align:left; font-weight:500; color:var(--body-light); font-size:13.5px; padding:18px 24px 18px 0; width:160px; vertical-align:top; }
+.ctable td{ padding:18px 0; font-size:14.5px; color:var(--ink); }
+
+/* ---------- Business rows ---------- */
+.biz{ border-top:1px solid var(--line); }
+.biz-row{ padding:96px 0; }
+.biz-grid{ display:grid; grid-template-columns:1fr 1.05fr; gap:64px; align-items:center; }
+.biz-image{ aspect-ratio:4/3; overflow:hidden; border:1px solid var(--line); }
+.biz-image img{ width:100%; height:100%; object-fit:cover; display:block; }
+@media (max-width:900px){ .biz-image{ order:-1; margin-bottom:28px; } }
+.biz-icon{ width:64px; height:64px; margin-bottom:26px; }
+.biz-icon path{ stroke-dasharray:300; stroke-dashoffset:0; }
+.biz-name{ font-size:clamp(32px,3.8vw,46px); margin:0 0 10px; line-height:1.1; }
+.biz-tagline{ font-size:14.5px; font-weight:700; color:var(--ink); margin:0 0 22px; }
+.biz-body p{ font-size:15px; color:var(--body); margin:0 0 16px; max-width:520px; line-height:1.85; }
+.biz-stats{ font-size:13.5px; color:var(--body-light); margin-bottom:14px; }
+.b-link{ font-size:14px; font-weight:700; color:var(--navy-deep); border-bottom:1px solid var(--navy-deep); padding-bottom:2px; width:fit-content; display:inline-block; cursor:pointer; }
+.btn{ display:inline-flex; align-items:center; gap:8px; font-size:14.5px; padding:14px 28px; transition:all .2s ease; border:1px solid transparent; cursor:pointer; font-family:inherit; }
+.btn-primary{ background:transparent; color:var(--gold); font-weight:700; border:1.5px solid var(--gold); }
+.btn-primary:hover{ background:var(--gold); color:#fff; }
+.btn-ghost{ border-color:rgba(255,255,255,.35); color:#fff; background:none; }
+.btn-ghost:hover{ border-color:#fff; }
+.btn-outline-dark{ border:1px solid var(--line); border-radius:4px; color:var(--navy-deep); background:none; font-size:14.5px; padding:12px 20px; }
+.btn-outline-dark:hover{ border-color:var(--navy-deep); }
+.btn-outline-dark .arrow{ color:var(--gold-deep); margin-left:2px; }
+
+/* ---------- Flow steps ---------- */
+.flow-steps{ display:flex; align-items:flex-start; margin-top:52px; text-align:left; }
+.flow-step{ flex:1; position:relative; padding-right:24px; }
+.flow-step:not(:last-child)::after{ content:""; position:absolute; top:21px; left:calc(42px + 8px); right:0; height:1px; background:var(--line); }
+.flow-num{ width:42px; height:42px; border-radius:50%; background:var(--navy-deep); color:#fff; display:flex; align-items:center; justify-content:center; font-family:"Shippori Mincho",serif; font-size:16px; margin-bottom:20px; position:relative; z-index:1; }
+.flow-step h4{ font-size:15.5px; margin:0 0 8px; color:var(--ink); }
+.flow-step p{ font-size:13px; color:var(--body-light); margin:0; line-height:1.7; max-width:190px; }
+@media (max-width:900px){
+  .flow-steps{ flex-direction:column; gap:32px; }
+  .flow-step::after{ display:none; }
+}
+
+/* ---------- Teaser links (TOP page) ---------- */
+.teaser-grid{ display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.teaser-box{ border-right:1px solid var(--line); border-bottom:1px solid var(--line); position:relative; transition:background .2s ease; cursor:pointer;
+  aspect-ratio:2.17/1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:28px; }
+.teaser-box:hover{ background:rgba(46,74,125,.05); }
+.teaser-box .eng{ font-family:"Shippori Mincho",serif; font-weight:400; font-size:36px; color:var(--navy-deep); margin:0 0 8px; display:block; }
+.teaser-box .jp{ font-size:14px; color:var(--body-light); font-weight:700; margin:0; display:block; }
+.teaser-box p{ display:none; }
+.teaser-box .arrow{ position:absolute; right:28px; top:50%; transform:translateY(-50%); color:var(--gold-deep); font-size:20px; transition:transform .2s ease; }
+.teaser-box:hover .arrow{ transform:translateY(-50%) translateX(5px); }
+
+/* ---------- Proof / case studies ---------- */
+.case-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:48px; margin-bottom:70px; position:relative; }
+.case-list div .cn{ font-family:"Shippori Mincho",serif; font-size:18px; color:var(--navy-deep); margin-bottom:6px; }
+.case-list div .ct{ font-size:12px; color:var(--body-light); display:block; margin-bottom:12px; }
+.case-list div p{ font-size:13.5px; color:var(--body); margin:0; }
+.connector{ position:absolute; left:0; top:10px; width:100%; height:2px; z-index:-1; }
+.connector path{ stroke-dasharray:1000; stroke-dashoffset:0; }
+.case-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:64px; }
+.case-card{ border:1px solid var(--line); transition:border-color .2s ease; }
+.case-card:hover{ border-color:var(--navy); }
+.case-card .thumb{ aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; color:#fff; font-family:"Shippori Mincho",serif; font-size:16px; letter-spacing:.03em; }
+.case-card .cbody{ padding:22px 24px 28px; }
+.case-card .ct{ font-size:12px; color:var(--body-light); display:block; margin-bottom:10px; }
+.case-card p{ font-size:13.5px; color:var(--body); margin:0; }
+
+/* ---------- Topics (news cards) ---------- */
+.topic-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.topic-card{ cursor:pointer; }
+.topic-card .thumb{ aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; color:#fff; font-family:"Shippori Mincho",serif; font-size:15px; }
+.topic-card .meta{ display:flex; align-items:center; gap:12px; margin-top:14px; }
+.topic-card .badge{ font-size:11px; font-weight:700; color:var(--gold-deep); border:1px solid var(--gold); padding:3px 9px; }
+.topic-card .date{ font-size:12px; color:var(--body-light); }
+.topic-card .ttl{ font-size:14.5px; color:var(--ink); margin:10px 0 0; line-height:1.6; }
+.topic-more{ display:flex; gap:14px; justify-content:center; margin-top:44px; flex-wrap:wrap; }
+.logo-strip{ display:flex; flex-wrap:wrap; gap:36px; align-items:center; border-top:1px solid var(--line); padding-top:40px; }
+.logo-strip span{ font-family:"Shippori Mincho",serif; font-size:15px; color:var(--body-light); }
+
+/* ---------- Team ---------- */
+.board{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+.member{ display:flex; gap:22px; }
+.member-frame{ flex:none; width:64px; height:64px; }
+.member-frame circle.ring{ stroke-dasharray:220; stroke-dashoffset:0; }
+.member-frame text{ font-family:"Shippori Mincho",serif; }
+.member h3{ font-size:17px; margin:14px 0 2px; }
+.member .role{ font-size:12.5px; color:var(--body-light); margin:0 0 10px; }
+.member p{ font-size:13.5px; color:var(--body); margin:0; }
+
+/* ---------- FAQ ---------- */
+.faq-item{ border-top:1px solid var(--line); }
+.faq-item:last-child{ border-bottom:1px solid var(--line); }
+.sec-dark .faq-item{ border-color:var(--line-dark); }
+.faq-item summary{ list-style:none; cursor:pointer; padding:18px 2px; display:flex; justify-content:space-between; gap:16px; font-size:14px; }
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary .plus{ font-size:18px; color:var(--gold-deep); font-weight:300; transition:transform .2s ease; }
+.faq-item[open] summary .plus{ transform:rotate(45deg); }
+.faq-item .faq-a{ padding:0 2px 20px; color:var(--body); font-size:13px; max-width:520px; }
+
+/* ---------- Contact ---------- */
+.contact-email{ font-family:"Shippori Mincho",serif; font-size:19px; display:block; margin:18px 0 26px; }
+.sns-line{ display:flex; align-items:center; justify-content:space-between; padding:13px 0; border-top:1px solid var(--line); font-size:13.5px; }
+.sns-line:first-child{ border-top:none; }
+.close-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; }
+.form{ display:flex; flex-direction:column; gap:18px; width:100%; }
+.form label{ font-size:12.5px; color:var(--body-light); display:block; margin-bottom:6px; }
+.form input, .form textarea{ width:100%; border:none; border-bottom:1px solid var(--line); background:transparent; padding:10px 2px; font-family:inherit; font-size:14.5px; color:var(--ink); }
+.form input:focus, .form textarea:focus{ outline:none; border-color:var(--navy); }
+.form textarea{ resize:vertical; min-height:100px; }
+.form .note{ font-size:12px; color:var(--body-light); }
+
+/* ---------- Marquee ---------- */
+.marquee{ background:var(--bg-alt); overflow:hidden; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.marquee-track{ display:flex; width:max-content; animation:marquee 22s linear infinite; }
+.marquee-track span{ font-family:"Shippori Mincho",serif; font-size:16px; color:var(--navy-deep); white-space:nowrap; padding:0 28px; display:flex; align-items:center; gap:28px; }
+.marquee-track span::after{ content:"◆"; font-size:9px; color:var(--body-light); }
+@keyframes marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+@media (prefers-reduced-motion:reduce){ .marquee-track{ animation:none; } }
+
+/* ---------- MVV blocks (About) ---------- */
+.mvv-block{ padding:56px 0; border-top:1px solid var(--line); }
+.mvv-block:last-child{ border-bottom:1px solid var(--line); }
+.mvv-eyebrow{ display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--gold-deep); font-weight:700; margin-bottom:20px; }
+.mvv-eyebrow .div{ color:var(--line); font-weight:400; }
+.mvv-block h3{ font-family:"Shippori Mincho",serif; font-size:clamp(24px,3.2vw,36px); line-height:1.55; color:var(--navy-deep); margin:0 0 20px; font-weight:700; max-width:760px; }
+.mvv-block p{ font-size:14.5px; color:var(--body); max-width:620px; margin:0; }
+
+/* ---------- Pager numeral (Business) ---------- */
+.pager{ font-family:"Shippori Mincho",serif; font-size:13px; color:var(--body-light); letter-spacing:.05em; margin-bottom:10px; }
+.biz-row.alt .pager{ color:var(--body-light); }
+
+footer{ background:#111318; color:rgba(255,255,255,.55); padding:56px 0 28px; font-size:12.5px; }
+.foot-row{ display:flex; flex-direction:column; align-items:center; gap:26px; text-align:center; }
+.foot-logo{ font-family:"Shippori Mincho",serif; font-size:22px; color:#fff; }
+.foot-logo span{ color:rgba(255,255,255,.5); }
+.foot-links{ display:flex; gap:26px; flex-wrap:wrap; justify-content:center; }
+.foot-links a:hover{ color:#fff; }
+.foot-social{ display:flex; gap:14px; }
+.foot-social a{ width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,.25); display:flex; align-items:center; justify-content:center; font-size:13px; transition:border-color .2s ease, color .2s ease; }
+.foot-social a:hover{ border-color:var(--gold); color:var(--gold); }
+.foot-copy{ color:rgba(255,255,255,.35); font-size:11.5px; }
+
+@media (max-width:900px){
+  .nav-links, .nav-cta{ display:none; }
+  .nav-toggle{ display:block; }
+  .hero{ min-height:auto; padding:80px 24px 64px; }
+  .hero-motif, .mini-motif{ display:none; }
+  .biz-grid, .board, .close-grid{ grid-template-columns:1fr; }
+  .case-list{ grid-template-columns:1fr; gap:32px; }
+  .connector{ display:none; }
+  .mvv-inline{ gap:32px; }
+  .statement{ padding:80px 0; }
+  .biz-row{ padding:56px 0; }
+  .sec{ padding:64px 0; }
+  .scroll-cue{ display:none; }
+  .teaser-grid{ grid-template-columns:1fr; }
+}
