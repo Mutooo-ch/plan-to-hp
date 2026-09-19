@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://plantotokyo.netlify.app/*"
+  to = "https://plan-to.com/:splat"
+  status = 301
+  force = true
