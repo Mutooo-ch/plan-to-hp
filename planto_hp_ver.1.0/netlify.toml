@@ -3,3 +3,6 @@
   to = "https://plan-to.com/:splat"
   status = 301
   force = true
+  [[edge_functions]]
+  function = "auth"
+  path = "/*"
