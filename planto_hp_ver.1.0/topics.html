@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>お知らせ・とうぷら投稿 — Plan to, inc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="brand">Plan to<span>,</span> inc</div>
+    <div class="nav-links">
+      <a href="index.html">TOP</a>
+      <a href="about.html">私たちについて</a>
+      <a href="business.html">事業内容</a>
+      <a href="works.html">実績</a>
+      <a href="team.html">チーム</a>
+    </div>
+    <a class="nav-cta" href="contact.html">お問い合わせ</a>
+    <button class="nav-toggle" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="mini-hero">
+    <div class="mini-hero-inner"><p class="eyebrow">Topics</p><h1>お知らせ・とうぷら投稿</h1></div>
+  </section>
+
+  <section class="sec" style="padding-bottom:0;">
+    <div class="wrap">
+      <div class="teaser-grid" style="grid-template-columns:repeat(2,1fr);">
+        <a class="teaser-box" href="#news"><span class="eng" style="font-size:26px;">News</span><span class="jp">お知らせ一覧</span><span class="arrow">›</span></a>
+        <a class="teaser-box" href="#toupla"><span class="eng" style="font-size:26px;">Plan to Tokyo</span><span class="jp">とうぷら投稿一覧</span><span class="arrow">›</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec topic-sec" id="news">
+    <div class="wrap">
+      <div class="sec-title"><span class="eng">News</span><span class="jp">お知らせ一覧</span></div>
+      <ul class="topic-list">
+        <li class="is-static"><div class="row"><span class="date">2026.10.15</span><span class="badge">NEWS</span><span class="ttl">コーポレートサイトをリニューアルしました。</span></div></li>
+        <li class="is-ext"><a href="https://www.instagram.com/reel/DV8nMkeD5Fz/" target="_blank" rel="noopener"><span class="date">2026.03.09</span><span class="badge">PR</span><span class="ttl">元祖めんたい煮込みつけめん様のPR投稿を掲載しました</span></a></li>
+        <li class="is-ext"><a href="https://www.instagram.com/reel/DVqYrNzvgmz/" target="_blank" rel="noopener"><span class="date">2026.03.09</span><span class="badge">PR</span><span class="ttl">ケンタッキーフライドチキン様のPR投稿を掲載しました</span></a></li>
+        <li class="is-ext"><a href="https://www.instagram.com/reel/DUK6Su_D3tY/" target="_blank" rel="noopener"><span class="date">2026.01.31</span><span class="badge">PR</span><span class="ttl">ふるさと鍋グランプリ様のPR投稿を掲載しました</span></a></li>
+        <li class="is-ext"><a href="https://www.instagram.com/reel/DRhaaz4kvcU/" target="_blank" rel="noopener"><span class="date">2025.11.26</span><span class="badge">PR</span><span class="ttl">ReFa様のPR投稿を掲載しました</span></a></li>
+        <li class="is-ext"><a href="https://www.instagram.com/reel/DMK2k5wzqVN/" target="_blank" rel="noopener"><span class="date">2025.07.16</span><span class="badge">PR</span><span class="ttl">teamLab様のPR投稿を掲載しました</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec sec-alt topic-sec" id="toupla">
+    <div class="wrap">
+      <div class="sec-title"><span class="eng">Plan to Tokyo</span><span class="jp">とうぷら投稿一覧</span></div>
+      <ul class="topic-list" id="toupla-list">
+        <li class="is-static"><div class="row"><span class="ttl">投稿を準備中です。</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-logo">Plan to<span>,</span> inc</div>
+    <div class="foot-links"><a href="about.html">私たちについて</a><a href="business.html">事業内容</a><a href="works.html">実績</a><a href="team.html">チーム</a><a href="contact.html">お問い合わせ</a><a href="https://toupura.com/?page_id=3" target="_blank" rel="noopener">プライバシーポリシー</a></div>
+    <div class="foot-social">
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="TikTok">TT</a>
+    </div>
+    <div class="foot-copy">© Plan to, inc.</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function(){
+  var ul=document.getElementById('toupla-list'); if(!ul) return;
+  fetch('toupla-posts.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    if(!list||!list.length) return;
+    list.sort(function(a,b){return a.date<b.date?1:-1;});
+    ul.innerHTML='';
+    list.forEach(function(p){
+      var li=document.createElement('li'); li.className='is-ext';
+      var a=document.createElement('a'); a.href=p.url; a.target='_blank'; a.rel='noopener';
+      [['date',p.date.replace(/-/g,'.')],['badge','とうぷら'],['ttl',p.title]].forEach(function(x){
+        var s=document.createElement('span'); s.className=x[0]; s.textContent=x[1]; a.appendChild(s);
+      });
+      li.appendChild(a); ul.appendChild(li);
+    });
+  }).catch(function(){});
+})();
+</script>
+
+</body>
+</html>

@@ -37,13 +37,14 @@
   <section class="sec">
     <div class="wrap" style="max-width:680px;">
       <h2>お問い合わせフォーム</h2>
-      <form class="form" onsubmit="return false;">
-        <div><label>お名前</label><input type="text" placeholder="山田 太郎"></div>
-        <div><label>会社名</label><input type="text" placeholder="株式会社〇〇"></div>
-        <div><label>メールアドレス</label><input type="email" placeholder="you@example.com"></div>
-        <div><label>お問い合わせ内容</label><textarea placeholder="とうぷらへの掲載相談 / HR支援のご相談 / Marketing支援のご相談 など"></textarea></div>
+      <form class="form" name="contact" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;"><label>入力しないでください <input name="bot-field"></label></p>
+        <div><label>お名前</label><input type="text" name="name" placeholder="山田 太郎" required></div>
+        <div><label>会社名</label><input type="text" name="company" placeholder="株式会社〇〇"></div>
+        <div><label>メールアドレス</label><input type="email" name="email" placeholder="you@example.com" required></div>
+        <div><label>お問い合わせ内容</label><textarea name="message" placeholder="とうぷらへの掲載相談 / HR支援のご相談 / Marketing支援のご相談 など" required></textarea></div>
         <button class="btn btn-primary" type="submit" style="align-self:flex-start;">送信する</button>
-        <p class="note">※このフォームはデザイン確認用のモックです。STUDIO実装時にフォーム機能と連携してください。</p>
       </form>
       <div style="margin-top:64px;">
         <h2 style="font-size:20px;">よくあるご質問</h2>
