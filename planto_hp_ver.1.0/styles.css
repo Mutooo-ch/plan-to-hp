@@ -327,3 +327,20 @@ html{ scroll-behavior:smooth; }
   body.menu-open .nav-toggle span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
 }
 @media (max-width:900px) and (prefers-reduced-motion:reduce){ .nav-links, .nav-links a, .nav-toggle span{ transition:none; } }
+
+/* ---------- Light hero (greige) ---------- */
+.hero{ background:linear-gradient(180deg,#EEE9E1 0%,var(--bg-alt) 100%); color:var(--navy); }
+.hero h1{ color:var(--navy); }
+.hero-eyebrow{ color:var(--gold-deep); }
+.hero-sub{ color:var(--body); }
+.hero .btn-primary{ background:var(--navy); border-color:var(--navy); color:#fff; }
+.hero .btn-primary:hover{ background:var(--gold); border-color:var(--gold); color:var(--navy-deep); }
+.hero .btn-ghost{ border-color:rgba(10,30,110,.3); color:var(--navy-deep); }
+.hero .btn-ghost:hover{ border-color:var(--navy-deep); }
+.hero-node-dot{ background:rgba(10,30,110,.22); }
+.hero-line-track{ background:rgba(10,30,110,.14); }
+.scroll-cue{ color:var(--body-light); }
+.hero-threads{ opacity:1; }
+@media (max-width:900px){ .hero-threads{ opacity:.35; } }
+.mini-hero{ background:linear-gradient(180deg,#EEE9E1 0%,var(--bg-alt) 100%); color:var(--navy); }
+.mini-hero .eyebrow{ color:var(--gold-deep); }
