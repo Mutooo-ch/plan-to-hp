@@ -449,3 +449,5 @@ a.biz-card:hover .arrow{ transform:translateX(5px); }
   .hero-inner > *{ max-width:none; }
 }
 @media (min-width:901px){ .hero-line-track{ width:90px; } }
+.member-photo{ flex:none; width:120px; height:120px; border-radius:50%; object-fit:cover; box-shadow:0 0 0 1.5px var(--navy), 0 0 0 6px var(--bg); }
+@media (max-width:560px){ .member{ flex-direction:column; } .member-photo{ width:104px; height:104px; } }

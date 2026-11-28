@@ -20,7 +20,6 @@
       <a href="about.html">会社概要</a>
       <a href="business.html">事業内容</a>
       <a href="team.html">メンバー紹介</a>
-      <a href="recruit.html">採用</a>
     </div>
     <a class="nav-cta" href="contact.html">お問い合わせ</a>
     <button class="nav-toggle" aria-label="メニュー"><span></span><span></span><span></span></button>
@@ -45,7 +44,6 @@
           <option value="AI×マーケティングのご相談">AI×マーケティングのご相談</option>
           <option value="とうぷらへの掲載相談">とうぷらへの掲載相談</option>
           <option value="事業開発・協業のご相談">事業開発・協業のご相談</option>
-          <option value="採用へのご応募・カジュアル面談">採用へのご応募・カジュアル面談</option>
           <option value="その他" selected>その他</option>
         </select></div>
         <div><label>お名前</label><input type="text" name="name" placeholder="山田 太郎" required></div>
@@ -59,7 +57,7 @@
         <details class="faq-item" open><summary>どうやって依頼できますか？<span class="plus">+</span></summary><div class="faq-a">メールまたはフォームからご連絡ください。とうぷらSNSでのPRはInstagram DMでも受け付けています。</div></details>
         <details class="faq-item"><summary>SNS支援の費用は？<span class="plus">+</span></summary><div class="faq-a">ご要件により異なりますが、最低単価5万円〜で承っています。</div></details>
         <details class="faq-item"><summary>どのくらいで開始できますか？<span class="plus">+</span></summary><div class="faq-a">多くの場合、ご契約後すぐにご支援可能です。</div></details>
-        <details class="faq-item"><summary>小規模案件も可能ですか？<span class="plus">+</span></summary><div class="faq-a">もちろん可能です。お気軽にご相談ください。</div></details>
+        <details class="faq-item"><summary>小規模案件も可能ですか？<span class="plus">+</span></summary><div class="faq-a">可能です。内容に応じてご提案いたします。</div></details>
       </div>
     </div>
   </section>
@@ -67,7 +65,7 @@
 <footer>
   <div class="wrap foot-row">
     <div class="foot-logo">Plan to<span>,</span> inc</div>
-    <div class="foot-links"><a href="about.html">会社概要</a><a href="about.html#history">沿革</a><a href="business.html">事業内容</a><a href="team.html">メンバー紹介</a><a href="recruit.html">採用</a><a href="contact.html">お問い合わせ</a><a href="https://toupura.com/?page_id=3" target="_blank" rel="noopener">プライバシーポリシー</a></div>
+    <div class="foot-links"><a href="about.html">会社概要</a><a href="about.html#history">沿革</a><a href="business.html">事業内容</a><a href="team.html">メンバー紹介</a><a href="contact.html">お問い合わせ</a><a href="https://toupura.com/?page_id=3" target="_blank" rel="noopener">プライバシーポリシー</a></div>
     <div class="foot-social">
       <a href="#" aria-label="Instagram">IG</a>
       <a href="#" aria-label="TikTok">TT</a>
@@ -78,7 +76,7 @@
 
 <script>
 (function(){
-  var map = {hr:0, marketing:1, media:2, dev:3, recruit:4};
+  var map = {hr:0, marketing:1, media:2, dev:3};
   var m = location.search.match(/[?&]type=([a-z]+)/);
   var sel = document.getElementById('contactType');
   if(m && sel && map[m[1]] !== undefined){ sel.selectedIndex = map[m[1]]; }
