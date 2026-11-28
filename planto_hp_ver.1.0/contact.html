@@ -21,6 +21,7 @@
       <a href="business.html">事業内容</a>
       <a href="works.html">実績</a>
       <a href="team.html">チーム</a>
+      <a href="recruit.html">採用</a>
     </div>
     <a class="nav-cta" href="contact.html">お問い合わせ</a>
     <button class="nav-toggle" aria-label="メニュー"><span></span><span></span><span></span></button>
@@ -40,6 +41,14 @@
       <form class="form" name="contact" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact">
         <p style="display:none;"><label>入力しないでください <input name="bot-field"></label></p>
+        <div><label>お問い合わせ種別</label><select name="type" id="contactType">
+          <option value="HR支援のご相談">HR支援のご相談</option>
+          <option value="AI×マーケティングのご相談">AI×マーケティングのご相談</option>
+          <option value="とうぷらへの掲載相談">とうぷらへの掲載相談</option>
+          <option value="事業開発・協業のご相談">事業開発・協業のご相談</option>
+          <option value="採用へのご応募・カジュアル面談">採用へのご応募・カジュアル面談</option>
+          <option value="その他" selected>その他</option>
+        </select></div>
         <div><label>お名前</label><input type="text" name="name" placeholder="山田 太郎" required></div>
         <div><label>会社名</label><input type="text" name="company" placeholder="株式会社〇〇"></div>
         <div><label>メールアドレス</label><input type="email" name="email" placeholder="you@example.com" required></div>
@@ -59,7 +68,7 @@
 <footer>
   <div class="wrap foot-row">
     <div class="foot-logo">Plan to<span>,</span> inc</div>
-    <div class="foot-links"><a href="about.html">私たちについて</a><a href="business.html">事業内容</a><a href="works.html">実績</a><a href="team.html">チーム</a><a href="contact.html">お問い合わせ</a><a href="https://toupura.com/?page_id=3" target="_blank" rel="noopener">プライバシーポリシー</a></div>
+    <div class="foot-links"><a href="about.html">私たちについて</a><a href="business.html">事業内容</a><a href="works.html">実績</a><a href="team.html">チーム</a><a href="recruit.html">採用</a><a href="contact.html">お問い合わせ</a><a href="https://toupura.com/?page_id=3" target="_blank" rel="noopener">プライバシーポリシー</a></div>
     <div class="foot-social">
       <a href="#" aria-label="Instagram">IG</a>
       <a href="#" aria-label="TikTok">TT</a>
@@ -68,6 +77,14 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var map = {hr:0, marketing:1, media:2, dev:3, recruit:4};
+  var m = location.search.match(/[?&]type=([a-z]+)/);
+  var sel = document.getElementById('contactType');
+  if(m && sel && map[m[1]] !== undefined){ sel.selectedIndex = map[m[1]]; }
+})();
+</script>
 <script src="script.js"></script>
 </body>
 </html>
