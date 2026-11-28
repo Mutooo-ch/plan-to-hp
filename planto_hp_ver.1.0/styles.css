@@ -435,3 +435,17 @@ a.biz-card:hover .arrow{ transform:translateX(5px); }
 @media (max-width:560px){
   .biz-cards, .biz-cards:has(> :nth-child(3):last-child){ grid-template-columns:1fr; }
 }
+
+/* ---------- Hero: one-line concept + photo ---------- */
+.hero h1{ font-size:clamp(28px,3.5vw,50px); line-height:1.45; }
+.hero-inner > *{ max-width:min(660px,56%); }
+.hero-photo{ position:absolute; top:0; right:0; bottom:0; width:42%; margin:0; z-index:1; overflow:hidden; }
+.hero-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.hero-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,#DCDBDD 0%,rgba(220,219,221,0) 30%); }
+@media (max-width:900px){
+  .hero{ padding-top:0; }
+  .hero-photo{ position:relative; width:auto; height:240px; margin:0 -24px 36px; }
+  .hero-photo::after{ background:linear-gradient(0deg,#DCDBDD 0%,rgba(220,219,221,0) 40%); }
+  .hero-inner > *{ max-width:none; }
+}
+@media (min-width:901px){ .hero-line-track{ width:90px; } }
